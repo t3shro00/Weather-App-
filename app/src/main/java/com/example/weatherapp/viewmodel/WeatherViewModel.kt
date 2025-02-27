@@ -29,7 +29,7 @@ class WeatherViewModel : ViewModel() {
                 val response = RetrofitInstance.weatherApiService.getWeather(cityName.value, apiKey)
                 Log.d("WeatherViewModel", "API Response: $response") // Print response in Logcat
                 weatherInfo.value =
-                    "Weather in ${cityName.value}: ${response.main.temp}°C, ${response.weather[0].description}"
+                    "Weather in ${cityName.value}: ${response.main.temp}°C, ${response.weather[0].description} ${response.weather[0].icon}"
             } catch (e: Exception) {
                 weatherInfo.value = "Error: Could not fetch weather data."
                 Log.e("WeatherViewModel", "API Request Failed: ${e.message}")
